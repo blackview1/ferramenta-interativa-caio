@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards - Aprenda de Forma Interativa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9; /* Fundo neutro */
+        }
+
+        header {
+            background: #ff5722; /* Laranja para o cabeçalho */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .search-container {
+            margin-top: 10px;
+        }
+
+        .search-container input {
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .search-container button {
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: white;
+            color: #ff5722;
+            cursor: pointer;
+        }
+
+        main {
+            padding: 20px;
+            background: white; /* Fundo branco para o conteúdo */
+        }
+
+        h2 {
+            color: #ff5722; /* Títulos em laranja */
+            border-bottom: 2px solid #ff5722;
+            padding-bottom: 5px;
+        }
+
+        .section-image {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin: 10px 0;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #ff5722; /* Laranja para o rodapé */
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .flashcard {
+            border: 2px solid #ff5722;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px auto;
+            text-align: center;
+            max-width: 400px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .flashcard:hover {
+            transform: scale(1.05);
+        }
+
+        .flashcard-front, .flashcard-back {
+            display: none;
+        }
+
+        .flashcard.active .flashcard-front {
+            display: block;
+        }
+
+        .flashcard.active .flashcard-back {
+            display: none;
+        }
+
+        .flashcard-flipped .flashcard-front {
+            display: none;
+        }
+
+        .flashcard-flipped .flashcard-back {
+            display: block;
+        }
+
+        .test-section {
+            margin-top: 30px;
+        }
+
+        .quiz-question {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+
+        .quiz-option {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Flashcards - Aprenda de Forma Interativa</h1>
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#beneficios">Benefícios</a></li>
+                <li><a href="#como-funciona">Como Funciona</a></li>
+                <li><a href="#exemplo">Exemplo de Flashcard</a></li>
+                <li><a href="#quiz">Teste seus Conhecimentos</a></li>
+            </ul>
+        </nav>
+        <div class="search-container">
+            <input type="text" placeholder="Pesquisar...">
+            <button type="submit">Buscar</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="sobre">
+            <h2>Sobre os Flashcards</h2>
+            <img src="https://content-management-files.canva.com/cdn-cgi/image/f=auto,q=70/c06fc483-9577-4f3d-8919-228dfb38e220/header_flashcards2.jpg" alt="Sobre Flashcards" class="section-image">
+            <p>Os flashcards são uma ferramenta de estudo interativa que utiliza a repetição espaçada para melhorar a retenção de informações. São usados por estudantes e profissionais em diversas áreas para aprender de maneira eficiente.</p>
+            <p>Com a possibilidade de personalização, você pode criar seus próprios cartões com perguntas e respostas, tornando o aprendizado mais envolvente e adaptado às suas necessidades.</p>
+        </section>
+
+        <section id="beneficios">
+            <h2>Benefícios dos Flashcards</h2>
+            <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/flashcards-flashcard-design-templates-7374ae276afcc56700e4e605be4f31d0_screen.jpg?ts=1667052361" alt="Benefícios" class="section-image">
+            <ul>
+                <li><strong>Melhora a retenção:</strong> Estudos mostram que a prática com flashcards pode aumentar significativamente a retenção de informações.</li>
+                <li><strong>Autoavaliação:</strong> Ajuda a identificar áreas que precisam de mais atenção, permitindo um foco mais eficaz no estudo.</li>
+                <li><strong>Flexibilidade:</strong> Você pode estudar em qualquer lugar e a qualquer momento, utilizando dispositivos móveis ou impressos.</li>
+                <li><strong>Personalização:</strong> Crie flashcards com conteúdo específico que você deseja aprender, desde vocabulário até fórmulas complexas.</li>
+            </ul>
+        </section>
+
+        <section id="como-funciona">
+            <h2>Como Funciona</h2>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQTDJAbmMLDRh3EDoqXKjk5csXnK3Tt9Nt6g&s" alt="Como Funciona" class="section-image">
+            <p>A plataforma de flashcards permite que você crie cartões com uma pergunta de um lado e a resposta do outro. Ao revisar, você pode se testar e escolher se a informação foi lembrada corretamente.</p>
+            <p>O sistema utiliza algoritmos para sugerir quais flashcards você deve revisar, baseando-se no seu desempenho anterior. Isso ajuda a reforçar o aprendizado e a fixar o conteúdo na memória de longo prazo.</p>
+        </section>
+
+        <section id="exemplo">
+            <h2>Exemplo de Flashcard</h2>
+            <div class="flashcard" onclick="this.classList.toggle('flashcard-flipped')">
+                <div class="flashcard-front">
+                    <h3>O que é HTML?</h3>
+                </div>
+                <div class="flashcard-back">
+                    <h3>HTML é a linguagem de marcação utilizada para criar páginas na web.</h3>
+                </div>
+            </div>
+            <p>Experimente clicar no flashcard acima para ver a resposta!</p>
+        </section>
+
+        <section id="quiz" class="test-section">
+            <h2>Teste seus Conhecimentos</h2>
+            <div class="quiz-question">
+                <strong>Pergunta 1:</strong> O que é CSS?
+                <div class="quiz-option">
+                    <input type="radio" name="question1" id="option1" value="A">
+                    <label for="option1">A) Uma linguagem de programação</label>
+                </div>
+                <div class="quiz-option">
+                    <input type="radio" name="question1" id="option2" value="B">
+                    <label for="option2">B) Uma linguagem de estilo para páginas web</label>
+                </div>
+                <div class="quiz-option">
+                    <input type="radio" name="question1" id="option3" value="C">
+                    <label for="option3">C) Um tipo de banco de dados</label>
+                </div>
+            </div>
+            <button onclick="checkQuiz()">Verificar Resposta</button>
+            <p id="quiz-result"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Flashcards. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Script para a interação do flashcard
+        const flashcards = document.querySelectorAll('.flashcard');
+
+        flashcards.forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('flashcard-flipped');
+            });
+        });
+
+        // Função para verificar a resposta do quiz
+        function checkQuiz() {
+            const selected = document.querySelector('input[name="question1"]:checked');
+            const result = document.getElementById('quiz-result');
+            if (!selected) {
+                result.textContent = 'Por favor, selecione uma resposta!';
+                return;
+            }
+            if (selected.value === 'B') {
+                result.textContent = 'Correto! CSS é uma linguagem de estilo para páginas web.';
+            } else {
+                result.textContent = 'Incorreto. A resposta correta é: B) Uma linguagem de estilo para páginas web.';
+            }
+        }
+    </script>
+</body>
+</html>
